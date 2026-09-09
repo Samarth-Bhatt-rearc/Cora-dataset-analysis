@@ -9,6 +9,9 @@ dependencies = [
     #
     # LIMITATION: for pipelines, dependencies are cached during development;
     # add dependencies to the 'environment' section of your pipeline.yml file instead
+    "xarray",
+    "h5py",
+    "h5netcdf"
 ]
 
 [dependency-groups]

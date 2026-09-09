@@ -8,10 +8,13 @@ resources:
       schema: ${var.schema}
       serverless: true
       root_path: "../src/cora_data_analysis_etl"
-
       libraries:
         - glob:
             include: ../src/cora_data_analysis_etl/transformations/**
+      
+      configuration:
+        pipelines.numUpdateRetryAttempts: "0"
+        pipelines.maxFlowRetryAttempts: "0"
 
       environment:
         dependencies:
