@@ -1,0 +1,35 @@
+bundle:
+  name: cora_data_analysis
+  uuid: 1ce07b3f-e440-4733-bd21-b83ec7b8de04
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    default: db_sandbox
+    description: The catalog to use
+  schema:
+    default: practice_data_area
+    description: The schema to use
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-b31a694d-1da3.cloud.databricks.com
+    variables:
+      catalog: db_sandbox
+      schema: practice_data_area
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-b31a694d-1da3.cloud.databricks.com
+      root_path: /Workspace/Users/samarth.bhatt@rearc.io/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: db_sandbox
+      schema: practice_data_area
+    permissions:
+      - user_name: samarth.bhatt@rearc.io
+        level: CAN_MANAGE
